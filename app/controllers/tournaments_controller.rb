@@ -10,7 +10,8 @@ class TournamentsController < ApplicationController
   def parse_events
     puts 'well done'
     # parse_calendar('http://rg4u.clan.su/tournaments/RU/List_IRGT_RU_2018.htm')
-    get_links_calendar_by_year('http://rg4u.clan.su/tournaments/RU/List_IRGT_RU_2018.htm')
+    # get_links_calendar_by_year('http://rg4u.clan.su/tournaments/RU/List_IRGT_RU_2018.htm')
+    # convert_date
   end
 
   # GET /tournaments/1

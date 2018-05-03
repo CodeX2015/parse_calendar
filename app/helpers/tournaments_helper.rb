@@ -42,7 +42,7 @@ module TournamentsHelper
             link_i += 1
             puts "      #{link['href'].strip}"
             #parse_files(link['href'].strip)
-            tournament.link.create(url:link['href'].strip) if !tournament.nil?
+            tournament.link.create(url: link['href'].strip) if !tournament.nil?
           end
         end
       end
@@ -59,6 +59,28 @@ module TournamentsHelper
         parse_calendar(link['href'])
         @year += 1
       end
+    end
+  end
+
+  def convert_date
+    tournaments = Tournament.all
+    tournaments.each do |tournament|
+      date = tournament.date
+      if date.include?('-')
+        a_d = date.split('-')
+        case a_d[0].to_s.length
+        when 2
+          date = "#{a_d[0]}#{a_d[1].to_s[2..-1]}-#{a_d[1]}"
+        when 5
+          date = "#{a_d[0]}#{a_d[1].to_s[5..-1]}-#{a_d[1]}"
+        end
+      elsif date.to_s.length > 10
+        date = "#{date[0..9]}-#{date[10..-1]}"
+      else
+        puts date
+      end
+      puts date
+      tournament.update(date: date)
     end
   end
 end
