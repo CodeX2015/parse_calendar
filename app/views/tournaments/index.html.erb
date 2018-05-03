@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tournaments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Date</th>
+      <th>City</th>
+      <th>Event name</th>
+<!--      <th>Link</th>-->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tournaments.each do |tournament| %>
+      <tr>
+        <td><%= tournament.year %></td>
+        <td><%= tournament.date %></td>
+        <td><%= tournament.city %></td>
+        <td><%= tournament.event_name %></td>
+        <td><%= link_to 'Show', tournament %></td>
+        <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
+        <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tournament', new_tournament_path %>
+<%= link_to 'Destroy all Tournaments', controller: :tournaments, action: :destroy_all %>
+
+<%#= link_to 'Parse Tournament', tournaments_path, :action => :parse_tournaments %>
+<%= button_to 'Parse Tournament', button_path, method: :post %>
