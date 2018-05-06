@@ -1,13 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  year: 1
-  date: MyString
-  city: MyString
+  organizer: one
+  city: one
+  date_from: MyString
+  date_to: MyString
   event_name: MyString
+  condition_link: MyString
+  forum_link: MyString
+  is_photo_report: false
+  is_video_report: false
 
 two:
-  year: 1
-  date: MyString
-  city: MyString
+  organizer: two
+  city: two
+  date_from: MyString
+  date_to: MyString
   event_name: MyString
+  condition_link: MyString
+  forum_link: MyString
+  is_photo_report: false
+  is_video_report: false

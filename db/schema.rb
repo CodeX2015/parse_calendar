@@ -10,21 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_02_135205) do
-
-  create_table "links", force: :cascade do |t|
-    t.string "url"
-    t.integer "tournament_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tournament_id"], name: "index_links_on_tournament_id"
-  end
+ActiveRecord::Schema.define(version: 2018_05_05_210306) do
 
   create_table "tournaments", force: :cascade do |t|
-    t.integer "year"
-    t.string "date"
+    t.string "organizer"
     t.string "city"
+    t.string "date_from"
+    t.string "date_to"
     t.string "event_name"
+    t.string "condition_link"
+    t.string "forum_link"
+    t.boolean "is_photo_report"
+    t.boolean "is_video_report"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

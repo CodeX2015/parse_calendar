@@ -9,8 +9,7 @@ class TournamentsController < ApplicationController
 
   def parse_events
     puts 'well done'
-    # parse_calendar('http://rg4u.clan.su/tournaments/RU/List_IRGT_RU_2018.htm')
-    # get_links_calendar_by_year('http://rg4u.clan.su/tournaments/RU/List_IRGT_RU_2018.htm')
+    parse_rg4u()
     # convert_date
   end
 
@@ -87,6 +86,8 @@ class TournamentsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def tournament_params
-    params.require(:tournament).permit(:year, :date, :city, :event_name, :link_id)
+    params.require(:tournament).permit(:organizer, :date_from,
+                                       :date_to, :city,
+                                       :is_photo_report, :is_video_report)
   end
 end

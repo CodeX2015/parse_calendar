@@ -4,38 +4,50 @@
       <h2><%= pluralize(tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
 
       <ul>
-      <% tournament.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% tournament.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :year %>
-    <%= form.text_field :year %>
+    <%= form.label :Организатор %>
+    <%= form.text_field :organizer %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.text_field :date %>
+    <%= form.label :'Дата начала' %>
+    <%= form.text_field :date_from %>
   </div>
 
   <div class="field">
-    <%= form.label :city %>
+    <%= form.label :'Дата окончания' %>
+    <%= form.text_field :date_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Город %>
     <%= form.text_field :city %>
   </div>
 
   <div class="field">
-    <%= form.label :event_name %>
+    <%= form.label :'Название мероприятия' %>
     <%= form.text_field :event_name %>
   </div>
 
-<!--  <div class="field">-->
-    <%#= form.label :link_id %>
-    <%#= form.text_field :link_id %>
-<!--  </div>-->
+  <div class="checkbox">
+    <%= form.label :is_photo_report do %>
+      <%= form.check_box :is_photo_report %>Фотоотчет
+    <% end %>
+  </div>
 
+  <div class="checkbox">
+    <%= form.label :is_video_report do %>
+      <%= form.check_box :is_video_report %>Видеоотчет
+    <% end %>
+  </div>
+  <br/>
   <div class="actions">
     <%= form.submit %>
   </div>

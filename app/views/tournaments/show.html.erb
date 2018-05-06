@@ -1,29 +1,57 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Просмотр соревнования</h1> <br/>
+
 <p>
-  <strong>year:</strong>
-  <%= @tournament.year %>
+  <strong>Организатор:</strong>
+  <%= @tournament.organizer %>
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @tournament.date %>
+  <strong>Дата начала:</strong>
+  <%= @tournament.date_from %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong>Дата окончания:</strong>
+  <%= @tournament.date_to %>
+</p>
+
+<p>
+  <strong>Город:</strong>
   <%= @tournament.city %>
 </p>
 
 <p>
-  <strong>Event name:</strong>
+  <strong>Название мероприятия:</strong>
   <%= @tournament.event_name %>
 </p>
 
-<!--<p>-->
-<!--  <strong>Link:</strong>-->
-  <%#= @tournament.link_id %>
-<!--</p>-->
+<p>
+  <strong>Положение:</strong>
+  <%= @tournament.condition_link %>
+</p>
+
+<p>
+  <strong>Тема на форуме:</strong>
+  <%= @tournament.forum_link %>
+</p>
+
+<p>
+  <%= label_tag('is_photo_report', 'is_photo_report') do %>
+    <%= check_box_tag('is_photo_report', @tournament.is_photo_report,
+                      @tournament.is_photo_report, disabled: true) %>
+    <span>Фотоотчет</span>
+  <% end %>
+</p>
+
+<p>
+  <%= label_tag('is_video_report', 'is_video_report') do %>
+    <%= check_box_tag('is_video_report', @tournament.is_video_report,
+                      @tournament.is_video_report, disabled: true) %>
+    <span>Видеоотчет</span>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
 <%= link_to 'Back', tournaments_path %>
