@@ -1,10 +1,14 @@
 class TournamentsController < ApplicationController
   before_action :set_tournament, only: [:show, :edit, :update, :destroy]
   include TournamentsHelper
+
   # GET /tournaments
   # GET /tournaments.json
   def index
-    @tournaments = Tournament.all
+    # @tournaments = Tournament.all
+    @search = TournamentSearch.new(params[:search])
+    @tournaments = @search.scope
+    @yty = 1
   end
 
   def parse_events
@@ -68,8 +72,9 @@ class TournamentsController < ApplicationController
     end
   end
 
-  # DELETE /tournaments/destroy_all
+  # GET /tournaments/destroy_all
   def destroy_all
+    exit
     @tournaments = Tournament.all
     @tournaments.destroy_all
     respond_to do |format|

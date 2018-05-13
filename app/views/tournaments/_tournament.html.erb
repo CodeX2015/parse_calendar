@@ -1,0 +1,17 @@
+<tr>
+  <td align="center"><%= tournament.organizer %></td>
+  <td align="center"><%= tournament.date_from.strftime("%d.%m.%Y") if !tournament.date_from.nil? %></td>
+  <td align="center"><%= tournament.date_to.strftime("%d.%m.%Y") if !tournament.date_to.nil? %></td>
+  <td align="center"><%= tournament.city %></td>
+  <td align="center"><%= link_to tournament.event_name, tournament_path(tournament) %></td>
+  <td align="center"><%= tournament.condition_link %></td>
+  <td align="center"><%= tournament.forum_link %></td>
+  <td align="center"><%= tournament.is_photo_report ? 'X' : '-' %></td>
+  <td align="center"><%= tournament.is_video_report ? 'X' : '-' %></td>
+
+  <td><%= link_to 'Show', tournament, class: 'btn btn-default' %></td>
+
+  <td><%= link_to 'Edit', edit_tournament_path(tournament), class: 'btn btn-default' %></td>
+
+  <td><%= link_to 'Destroy', tournament, method: :delete, class: 'btn btn-default', data: {confirm: 'Are you sure?'} %></td>
+</tr>

@@ -1,50 +1,47 @@
-<p id="notice"><%= notice %></p>
+<diw class="row">
+  <h1 align="center">Таблица соревнований</h1> <br/>
+  <div class="pull-right range-query">
+    <%= form_tag tournaments_path, method: :get do %>
+      <%= label_tag :'Дата' %>
+      <%= text_field_tag 'search[date_from]', @search.date_from %>
+      <%= label_tag :'Город' %>
+      <%= text_field_tag 'search[city]', @search.city %>
+      <%= submit_tag 'Поиск', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+  <%= link_to 'Создать соревнование', new_tournament_path, class: 'btn btn-primary pull-left' %>
+</diw>
 
-<h1 align="center">Таблица соревнований</h1> <br/>
+<%#= link_to 'Destroy all Tournaments', {controller: :tournaments, action: :destroy_all}, data: {confirm: 'Are you sure?'} %>
 
-<%= link_to 'New Tournament', new_tournament_path %>
-<%= link_to 'Destroy all Tournaments', controller: :tournaments, action: :destroy_all %>
-<br/><br/>
+<%#= button_to 'Parse Tournament', button_path, method: :post, data: {confirm: 'Are you sure?'} %>
+<% if @tournaments.nil? || @tournaments.empty? %>
+  <div class="container-fluid"><h3><i>Ничего не найдено</i></h3></div>
+<% else %>
 
-<%#= link_to 'Parse Tournament', tournaments_path, :action => :parse_tournaments %>
-<%= button_to 'Parse Tournament', button_path, method: :post %>
-<br/><br/>
-<table>
-  <thead>
-  <tr>
-    <th>Организатор</th>
-    <th>Дата начала</th>
-    <th>Дата окончания</th>
-    <th>Город</th>
-    <th>Название соревнования</th>
-    <th>Положение</th>
-    <th>Тема на форуме</th>
-    <th>Фотоотчет</th>
-    <th>Видеоотчет</th>
-    <th colspan="9"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @tournaments.each do |tournament| %>
+  <table class="table table-condensed table-bordered table-hover">
+    <thead>
     <tr>
-      <td align="center"><%= tournament.organizer %></td>
-      <td align="center"><%= tournament.date_from %></td>
-      <td align="center"><%= tournament.date_to %></td>
-      <td align="center"><%= tournament.city %></td>
-      <td align="center"><%= tournament.event_name %></td>
-      <td align="center"><%= tournament.condition_link %></td>
-      <td align="center"><%= tournament.forum_link %></td>
-      <td align="center"><%= tournament.is_photo_report ? 'X' : '-' %></td>
-      <td align="center"><%= tournament.is_video_report ? 'X' : '-' %></td>
-
-      <td><%= link_to 'Show', tournament %></td>
-      <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
-      <td><%= link_to 'Destroy', tournament, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <th>Организатор</th>
+      <th>Дата начала</th>
+      <th>Дата окончания</th>
+      <th>Город</th>
+      <th>Название соревнования</th>
+      <th>Положение</th>
+      <th>Тема на форуме</th>
+      <th>Фотоотчет</th>
+      <th>Видеоотчет</th>
+      <!--      <th colspan="9"></th>-->
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+
+    <%= render @tournaments %>
+
+    </tbody>
+  </table>
+<% end %>
 
 <br>
 

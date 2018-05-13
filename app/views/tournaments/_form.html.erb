@@ -11,29 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :Организатор %>
-    <%= form.text_field :organizer %>
+    <%= form.text_field :organizer, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :'Дата начала' %>
-    <%= form.text_field :date_from %>
+    <%= form.text_field :date_from, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :'Дата окончания' %>
-    <%= form.text_field :date_to %>
+    <%= form.text_field :date_to, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :Город %>
-    <%= form.text_field :city %>
+    <%= form.text_field :city, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :'Название мероприятия' %>
-    <%= form.text_field :event_name %>
+    <%= form.text_field :event_name, class: 'form-control' %>
   </div>
 
   <div class="checkbox">
